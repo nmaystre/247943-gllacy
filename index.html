@@ -8,7 +8,7 @@
   <header class="main-header">
     <div class="container">
       <div class="logo">
-        <img src="img/logo.png" alt="Gllacy-logo">
+        <a href="#"><img src="img/logo.png" alt="Gllacy-logo"></a>
       </div>
       <nav class="main-navigation">
         <ul>
@@ -25,18 +25,20 @@
           <li><a href="#">О Компании</a></li>
         </ul>
       </nav>
-      <div class="search-container">
-        <form class="search">
-          <input type="search" name="search" value="" placeholder="Что ищем?"></input>
-          <button class="search-btn" type="submit"></button>
-        </form>
-      </div>
-      <div class="login-container">
-        <a class="login" href="#">Вход</a>
-      </div>
-      <div class="cart-container">
-        <a class="cart" href="#">Пусто</a>
-      </div>
+        <div class="search-etc-wrapper">
+          <div class="search-container">
+            <form class="search">
+              <input type="search" name="search" value="" placeholder="Что ищем?"></input>
+              <button class="search-btn" type="submit"></button>
+            </form>
+          </div>
+          <div class="login-container">
+            <a class="login" href="#">Вход</a>
+          </div>
+          <div class="cart-container">
+            <a class="cart" href="#">Пусто</a>
+          </div>
+        </div>
       <div class="info">
         С 10 до 20, ежедневно<br>
         <span class="info-number">8 812 450-25-25</span>
@@ -47,6 +49,10 @@
     <div class="container">
       <div class="slider-container">
         <section class="slider">
+          <!-- на самом деле инпуты должны быть вынесены прямо под открывающий тег body.
+Если ты заметишь, то при смене слайда так же должен меняться и фон. Так что тебе нужно иметь возможность взаимодействовать с элементами вне слайдера
+Фон только увидела, но как вынос inputов повлияет на фоновое изображение?-->
+
           <input type="radio" id="btn-1" name="toggle" checked>
           <input type="radio" id="btn-2" name="toggle">
           <input type="radio" id="btn-3" name="toggle">
@@ -55,19 +61,19 @@
             <label for="btn-2"></label>
             <label for="btn-3"></label>
           </div>
-          <div class="slider-slides-container"> <!--переименовать контейнеры?-->
-            <div class="slider-slides">
-              <div class="slider-slides-pic">
+          <div class="slider-items">
+            <div class="slider-wrapper">
+              <div class="slider-item">
                 <img src="img/icecream-slider-1.png" alt="Крем-брюле и пломбир с малиновым джемом">
-                <h2>Крем-брюле и пломбир с малиновым джемом</h2> <!--Получается на стр не будет h1?-->
-                <a class="slider-buy button" href="#">Давайте оба!</a> <!--сделала ссылки к каждому слайду, тк адреса должны быть разными. Или лучше было одну под слайдером сделать?-->
+                <h2>Крем-брюле и пломбир с малиновым джемом</h2>
+                <a class="slider-buy button" href="#">Давайте оба!</a>
               </div>
-              <div class="slider-slides-pic">
+              <div class="slider-item">
                 <img src="img/icecream-slider-2.png" alt="Шоколадный пломбир и лимонный сорбет">
                 <h2>Шоколадный пломбир и лимонный сорбет</h2>
                 <a class="slider-buy button" href="#">Давайте оба!</a>
               </div>
-              <div class="slider-slides-pic">
+              <div class="slider-item">
                 <img src="img/icecream-slider-2.png" alt="Пломбир с помадкой и клубничный щербет">
                 <h2>Пломбир с помадкой и клубничный щербет</h2>
                 <a class="slider-buy button" href="#">Давайте оба!</a>
@@ -77,81 +83,65 @@
         </section>
       </div>
       <div class="specials">
-        <section class="specials-left">
+        <section class="special-item specials-item--raspberry">
           <h3>Малинка даром!</h3>
-          При покупке 2 кг любого фруктового мороженого, добавим в ваш заказ банку малинового варенья бесплатно.<br>
-          <a class="specials-left-buy button" href="#">Хочу варенье!</a>
+          <p>При покупке 2 кг любого фруктового мороженого, добавим в ваш заказ банку малинового варенья бесплатно.</p>
+          <a class="button" href="#">Хочу варенье!</a>
         </section>
-        <section class="specials-right">
+        <section class="special-item special-item--chocolate">
           <h3>Шоколадки даром!</h3>
-          При покупке 2 кг пломбира, добавим в ваш заказ упаковку вкуснейшей шоколадной присыпки совершенно бесплатно.<br>
-          <a class="specials-right-buy button" href="#">Хочу шоколадки!</a>
+          <p>При покупке 2 кг пломбира, добавим в ваш заказ упаковку вкуснейшей шоколадной присыпки совершенно бесплатно.</p>
+          <a class="button" href="#">Хочу шоколадки!</a>
         </section>
       </div>
       <div class="hits">
-        <section class="hits-item"><!--Не могу до конца разобраться в контейнерах для отцентровки. Нужно ли прописывать отдельный контейнер для каждого "хита" или хватит section?-->
-          <img src="img/hit.jpeg" alt="ХИТ"><!--как картинку или текстом?-->
-          <div class="item-pic">
+        <section class="hits-item">
+          <div class="goods-item goods-item--hit">
             <img src="img/hit-1.jpeg" alt="Сливочное с апельсиновым джемом и цитрусовой стружкой">
           </div>
-          <div class="item-price">
-            <span class="price">310</span><span class="rub">&#8381;</span><span class="kg">/кг</span>
+          <div class="item-price price">
+            <span class="price-sum">310</span><span class="price-curr">&#8381;</span><span class="price-measure">/кг</span>
           </div>
           <a href="#" class="hits-name">Сливочное с апельсиновым джемом и цитрусовой стружкой</a>
         </section>
         <section class="hits-item">
-          <img src="img/hit.jpeg" alt="ХИТ">
-          <div class="item-pic">
+          <div class="goods-item goods-item--hit">
             <img src="img/hit-2.jpeg" alt="Сливочно-кофейное с кусочками шоколада">
           </div>
-          <div class="item-price">
-            <span class="price">380</span><span class="rub">&#8381;</span><span class="kg">/кг</span>
+          <div class="item-price price">
+            <span class="price-sum">380</span><span class="price-curr">&#8381;</span><span class="price-measure">/кг</span>
           </div>
           <a href="#" class="hits-name">Сливочно-кофейное с кусочками шоколада</a>
         </section>
         <section class="hits-item">
-          <img src="img/hit.jpeg" alt="ХИТ">
-          <div class="item-pic">
+          <div class="goods-item goods-item--hit">
             <img src="img/hit-3.jpeg" alt="Сливочно-клубничное с присыпкой из белого шоколада">
           </div>
-          <div class="item-price">
-            <span class="price">355</span><span class="rub">&#8381;</span><span class="kg">/кг</span>
+          <div class="item-price price">
+            <span class="price-sum">355</span><span class="price-curr">&#8381;</span><span class="price-measure">/кг</span>
           </div>
           <a href="#" class="hits-name">Сливочно-клубничное с присыпкой из белого шоколада</a>
         </section>
         <section class="hits-item">
-          <img src="img/hit.jpeg" alt="ХИТ">
-          <div class="item-pic">
+          <div class="goods-item goods-item--hit">
             <img src="img/hit-4.jpeg" alt="Сливочное крем-брюле с карамельной подливкой">
           </div>
-          <div class="item-price">
-            <span class="price">415</span><span class="rub">&#8381;</span><span class="kg">/кг</span>
+          <div class="item-price price">
+            <span class="price-sum"415</span><span class="price-curr">&#8381;</span><span class="price-measure">/кг</span>
           </div>
           <a href="#" class="hits-name">Сливочное крем-брюле с карамельной подливкой</a>
         </section>
       </div>
       <div class="about">
         <p>Магазин Глейси  — это онлайн и офлайн магазин по продаже мороженого собственного производства на развес</p>
-        <div class="about-left">
-          <section class="about-feature">
-            <img src="img/features.png" alt="ice-cream">
-            Все наше мороженое изготавливается на собственном производстве, с использованием современного оборудования и проверенных временем технологий.
-          </section>
-          <section class="about-feature">
-            <img src="img/features.png" alt="eco">
-            Для приготовления мороженого используются настоящие сливки и молоко высочайшего качества. Все дополнительные ингредиенты и добавки произведены из натурального, экологически чистого сырья.
-          </section>
-        </div>
-        <div class="about-right">
-          <section class="about-feature">
-            <img src="img/features.png" alt="farm">
-            Закупка ингредиентов  производится только у проверенных фермерских хозяйств и компаний, с которыми нас связывает долговременное сотрудничество.
-          </section>
-          <section class="about-feature">
-            <img src="img/features.png" alt="temperature">
-            Доставка нашего мороженого до заказчиков осуществляется в специальном термопаке, который не дает мороженому растаять в пути и позволяет сохранить превосходный вкус.
-          </section>
-        </div>
+        <!-- "Как ты уже, наверное понимаешь, эти блоки "похожи" на верхние 2(малинка там...). Примени похожую логику и здесь
+        Ты имеешь в виду, что нужно разбить блок about-info пополам div-ами с одинаковым классом?-->
+        <div class="about-info">
+            <p class="about-text about-text--icecream"> Все наше мороженое изготавливается на собственном производстве, с использованием современного оборудования и проверенных временем технологий.</p>
+            <p class="about-text about-text--leaf">Для приготовления мороженого используются настоящие сливки и молоко высочайшего качества. Все дополнительные ингредиенты и добавки произведены из натурального, экологически чистого сырья.</p>
+            <p class="about-text about-text--cow">Закупка ингредиентов  производится только у проверенных фермерских хозяйств и компаний, с которыми нас связывает долговременное сотрудничество.</p>
+            <p class="about-feature about-feature--temp">Доставка нашего мороженого до заказчиков осуществляется в специальном термопаке, который не дает мороженому растаять в пути и позволяет сохранить превосходный вкус.</p>
+          </div>
       </div>
       <div class="content">
         <div class="content-blog">
@@ -163,23 +153,27 @@
           <form action="">
             <p>Подпишитесь на нашу сладкую рассылку и будете всегда в курсе всего самого вкусного, что у нас происходит. Обещаем не спамить и не слать всякой не нужной ерунды. Честно =) </p>
             <input type="email" name="email" value="" placeholder="Электронная почта">
-            <button class="btn" type="submit">Отправить</button>
+            <button class="button" type="submit">Отправить</button>
           </form>
         </div>
       </div>
       <div class="contacts">
+        <!--- А вот здесь нужно сделать немного похитрее .contacts>(#map(фоном у него картинка пока что) + .container>(.address))
+        не поняла конструкцию, а именно #. контейнер к адресу добавила-->
         <div class="map">
-        <img src="img/pin.png" alt="pin"><!--карта вставляется как картинка в background? -->
+        <img src="img/pin.png" alt="pin">
         </div>
-        <div class="address">
-          Адрес главного офиса и<br>
-          офлайн магазина:
-          <p class="contacts">ул. Большая Конюшенная 19/8,<br> Санкт-Петербург</p>
-          Для заказов по телефону:
-          <p class="tel">8 812 450-25-25<p>
-          (с 10 до 20 ежедневно)
+        <div class="address-container">
+          <div class="address">
+            Адрес главного офиса и<br>
+            офлайн магазина:
+            <p class="contacts">ул. Большая Конюшенная 19/8,<br> Санкт-Петербург</p>
+            Для заказов по телефону:
+            <p class="tel">8 812 450-25-25<p>
+            (с 10 до 20 ежедневно)
+          </div>
+          <a class="button" href="#">Форма обратной связи</a>
         </div>
-        <a class="button" href="#">Форма обратной связи</a> <!--Форма верстается отдельно или на этой же стр?-->
         <!--
         <form class="feedback" action="#" method="post">
           Мы обязательно вам ответим!

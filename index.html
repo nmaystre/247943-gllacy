@@ -5,6 +5,10 @@
     <title>Глейси Шоп</title>
   </head>
   <body>
+  <input type="radio" id="btn-1" name="toggle" checked>
+  <input type="radio" id="btn-2" name="toggle">
+  <input type="radio" id="btn-3" name="toggle">
+  <div class="slider-background slider-item"></div><!-- зачем добавлять div если можно напрямую менять цвет в body? или нельзя?-->
   <header class="main-header">
     <div class="container">
       <div class="logo">
@@ -12,8 +16,8 @@
       </div>
       <nav class="main-navigation">
         <ul>
-          <li><a class="active" href="#">Каталог</a>
-            <ul class="main-sub-navigation">
+          <li><a class="active drop-down" href="#">Каталог</a>
+            <ul class="main-navigation-sub drop-down-block">
               <li><a href="#">Новинки</a></li>
               <li><a href="#">Сливочное</a></li>
               <li><a href="#">Щербеты</a></li>
@@ -28,12 +32,27 @@
         <div class="search-etc-wrapper">
           <div class="search-container">
             <form class="search">
-              <input type="search" name="search" value="" placeholder="Что ищем?"></input>
-              <button class="search-btn" type="submit"></button>
+              <button class="search-btn drop-down" type="submit"></button>
+              <div class="drop-down-block">
+                <input class="search-line" type="search" name="search" value="" placeholder="Что ищем?"></input>
+              </div>
             </form>
           </div>
           <div class="login-container">
-            <a class="login" href="#">Вход</a>
+            <a class="login drop-down" href="#">Вход</a>
+            <div class="drop-down-block">
+              <form class="login-form">
+                <input type="email" name="email" placeholder="Электронная почта">
+                <input type="password" name="password" placeholder="Пароль">
+                <div class="form-half-width">
+                  <button class="button" type="submit">Войти</button>
+                </div>
+                <div class="form-half-width">
+                  <a href="#">Забыли пароль?</a><br>
+                  <a href="#">Новая регистрация</a>
+                </div>
+              </form>
+            </div>
           </div>
           <div class="cart-container">
             <a class="cart" href="#">Пусто</a>
@@ -49,13 +68,6 @@
     <div class="container">
       <div class="slider-container">
         <section class="slider">
-          <!-- на самом деле инпуты должны быть вынесены прямо под открывающий тег body.
-Если ты заметишь, то при смене слайда так же должен меняться и фон. Так что тебе нужно иметь возможность взаимодействовать с элементами вне слайдера
-Фон только увидела, но как вынос inputов повлияет на фоновое изображение?-->
-
-          <input type="radio" id="btn-1" name="toggle" checked>
-          <input type="radio" id="btn-2" name="toggle">
-          <input type="radio" id="btn-3" name="toggle">
           <div class="slider-controls">
             <label for="btn-1"></label>
             <label for="btn-2"></label>
@@ -133,23 +145,26 @@
         </section>
       </div>
       <div class="about">
-        <p>Магазин Глейси  — это онлайн и офлайн магазин по продаже мороженого собственного производства на развес</p>
-        <!-- "Как ты уже, наверное понимаешь, эти блоки "похожи" на верхние 2(малинка там...). Примени похожую логику и здесь
-        Ты имеешь в виду, что нужно разбить блок about-info пополам div-ами с одинаковым классом?-->
+        <p class="about-description">Магазин Глейси  — это онлайн и офлайн магазин по продаже мороженого собственного производства на развес</p>
         <div class="about-info">
+          <div class="special-item">
             <p class="about-text about-text--icecream"> Все наше мороженое изготавливается на собственном производстве, с использованием современного оборудования и проверенных временем технологий.</p>
             <p class="about-text about-text--leaf">Для приготовления мороженого используются настоящие сливки и молоко высочайшего качества. Все дополнительные ингредиенты и добавки произведены из натурального, экологически чистого сырья.</p>
-            <p class="about-text about-text--cow">Закупка ингредиентов  производится только у проверенных фермерских хозяйств и компаний, с которыми нас связывает долговременное сотрудничество.</p>
-            <p class="about-feature about-feature--temp">Доставка нашего мороженого до заказчиков осуществляется в специальном термопаке, который не дает мороженому растаять в пути и позволяет сохранить превосходный вкус.</p>
           </div>
+          <div class="special-item">
+            <p class="about-text about-text--cow">Закупка ингредиентов  производится только у проверенных фермерских хозяйств и компаний, с которыми нас связывает долговременное сотрудничество.</p>
+            <p class="about-text about-text--temp">Доставка нашего мороженого до заказчиков осуществляется в специальном термопаке, который не дает мороженому растаять в пути и позволяет сохранить превосходный вкус.</p>
+          </div>
+        </div>
       </div>
       <div class="content">
-        <div class="content-blog">
-          <b>Новое в нашем блоге</b>
+        <div class="special-item section-item blog">
+          <h3>Новое в нашем блоге</h3>
           <a class="post" href="#">10  способов сервировки<br>фруктовых щербетов к<br>столу</a>
           <img src="img/post.png" alt="10 способов сервировки фруктовых щербетов к столу">
         </div>
-        <div class="subscribtion">
+        <div class="special-item subscription">
+          <div class="subscription-form">
           <form action="">
             <p>Подпишитесь на нашу сладкую рассылку и будете всегда в курсе всего самого вкусного, что у нас происходит. Обещаем не спамить и не слать всякой не нужной ерунды. Честно =) </p>
             <input type="email" name="email" value="" placeholder="Электронная почта">
@@ -157,32 +172,31 @@
           </form>
         </div>
       </div>
+      </div>
       <div class="contacts">
-        <!--- А вот здесь нужно сделать немного похитрее .contacts>(#map(фоном у него картинка пока что) + .container>(.address))
-        не поняла конструкцию, а именно #. контейнер к адресу добавила-->
-        <div class="map">
-        <img src="img/pin.png" alt="pin">
-        </div>
-        <div class="address-container">
-          <div class="address">
-            Адрес главного офиса и<br>
-            офлайн магазина:
-            <p class="contacts">ул. Большая Конюшенная 19/8,<br> Санкт-Петербург</p>
-            Для заказов по телефону:
-            <p class="tel">8 812 450-25-25<p>
-            (с 10 до 20 ежедневно)
+        <div class="map" id="map">
+          <img class="pin" src="img/pin.png" alt="pin">
+          <div class="address-container">
+            <div class="address">
+              Адрес главного офиса и<br>
+              офлайн магазина:
+              <p class="contacts">ул. Большая Конюшенная 19/8,<br> Санкт-Петербург</p>
+              Для заказов по телефону:
+              <p class="tel">8 812 450-25-25<p>
+              (с 10 до 20 ежедневно)
+            </div>
+            <a class="button drop-down" href="#">Форма обратной связи</a>
           </div>
-          <a class="button" href="#">Форма обратной связи</a>
         </div>
-        <!--
-        <form class="feedback" action="#" method="post">
-          Мы обязательно вам ответим!
+
+        <form class="feedback drop-down-block" action="#" method="post">
+          <h3>Мы обязательно вам ответим!</h3>
           <input class="feedback-input" type="text" name="Name" value="" placeholder="Как вас зовут?">
           <input class="feedback-input" type="email" name="email" value="" placeholder="Ваша почта для ответа?">
           <textarea class="feedback-input" cols="30" rows="15">Напишите что-нибудь...</textarea>
           <button class="feedback-btn button" type="submit">Отправить</button>
         </form>
-        -->
+
       </div>
     </div>
   </main>
@@ -195,11 +209,11 @@
         <a class="social-btn social-btn-vk" href="#"><img src="img/social.png" alt="vkontakte"></a>
       </section>
       <section class="footer-info">
-        <div class="footer-info-left">
+        <div class="footer-info-half">
           <b><a href="#">Для поставщиков</a><b>
           <a href="#">О производстве </a>
         </div>
-        <div class="footer-info-right">
+        <div class="footer-info-half">
           <a href="#">Наши документы </a>
           <a href="#">Экологические стандарты </a>
         </div>

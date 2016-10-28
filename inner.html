@@ -30,7 +30,7 @@
             <div class="search-container">
               <form class="search">
                 <div class="drop-down-block">
-                  <input type="search" name="search" value="" placeholder="Что ищем?"></input>
+                  <input type="search" name="search" value="" placeholder="Что ищем?">
                 </div>
                 <button class="search-btn" type="submit"></button>
               </form>
@@ -84,7 +84,7 @@
               <div class="filter-block">
                 <span class="filter-label"><label for="sort">Сортировка:</label></span>
                 <div class="filter-choose">
-                  <select>
+                  <select id="sort">
                     <option value="popularity">По популярности</option>
                     <option value="low-cost">Сначала недорогие</option>
                     <option value="high-cost">Сначала дорогие</option>
@@ -100,6 +100,8 @@
               </div>
               <div class="filter-block">
                 <span class="filter-label"><legend>Жирность:</legend></span>
+                <!--валидатор ругается "Element legend not allowed as child of element span in this context. (Suppressing further errors from this subtree.)"
+              получается fieldset нужен был все-таки?-->
                 <div class="filter-choose">
                   <label class="fat-content"><input type="radio" id="zero" name="zero"><span>0%</span></label>
                   <label class="fat-content"><input type="radio" id="ten" name="ten" checked><span>до 10%</span></label>
@@ -256,7 +258,7 @@
         </section>
         <section class="footer-info">
           <div class="footer-info-half">
-            <b><a href="#">Для поставщиков</a><b>
+            <b><a href="#">Для поставщиков</a></b>
             <a href="#">О производстве </a>
           </div>
           <div class="footer-info-half">

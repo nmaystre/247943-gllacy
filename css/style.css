@@ -1,0 +1,24 @@
+body {
+  font-size: 16pt;
+  line-height: 22pt;
+  color: #ffffff;
+  font-weight: regular;
+  font-family: "Roboto";
+  background-color: #323232; /* я пока оставила такой цвет чтобы видеть текст в макете */
+}
+
+h2 {
+  font-size: 35pt;
+  line-height: 41pt;
+  color: #ffffff;
+  font-weight: bold;
+  font-family: "Roboto";
+}
+
+h3 {
+  font-size: 16pt;
+  line-height: 22pt;
+  color: #ffffff;
+  font-weight: medium;
+  font-family: "Roboto";
+}

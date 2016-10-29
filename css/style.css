@@ -4,7 +4,7 @@ body {
   color: #ffffff;
   font-weight: regular;
   font-family: "Roboto";
-  background-color: #323232; /* я пока оставила такой цвет чтобы видеть текст в макете */
+  background-color: #849d8f; /* я пока оставила такой цвет чтобы видеть текст в макете */
 }
 
 h2 {
@@ -21,4 +21,159 @@ h3 {
   color: #ffffff;
   font-weight: medium;
   font-family: "Roboto";
+}
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.container {
+  width: 1150px;
+  padding: 0 27px;
+  margin: 0 auto;
+  min-height: 70px;
+}
+
+.logo {
+  width: 155px;
+  float: left;
+  min-height: 70px;
+  background-color: black;
+}
+
+.main-navigation {
+  width: 400px;
+  float: left;
+  min-height: 70px;
+  background-color: red;
+}
+
+.dropdown-block {
+  visibility: hidden;
+  position: absolute;
+}
+
+.main-navigation > ul > li {
+  float: none;
+  display: inline-block;
+}
+
+.user-block {
+  width: 293px;
+  float:right;
+  min-height: 70px;
+  background-color: blue;
+}
+
+.info {
+  width: 293px;
+  float:right;
+  min-height: 70px;
+  background-color: purple;
+}
+
+
+
+
+
+/*======================================
+ Системное оформление - не изменять
+=======================================*/
+
+body {
+  padding: 3px;
+}
+
+body > *,
+body > * > *,
+body > * > * > * {
+  position: relative;
+}
+
+body > *::before,
+body > * > *::before,
+body > * > * > *::before {
+  content: "";
+  position: absolute;
+
+  height: 24px;
+  padding: 2px 5px;
+
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+  font-family: "Courier New", monotype;
+  white-space: nowrap;
+}
+
+body > *::before {
+  top: -3px;
+  left: -3px;
+}
+
+body > * > *::before {
+  top: -3px;
+  left: -3px;
+}
+
+body > * > * > *::before {
+  top: 0;
+  left: 0;
+}
+
+body > * {
+  background: rgba(0, 128, 0, 0.2);
+  box-shadow: 0 0 0 3px green;
+}
+
+body > *::before {
+  color: white;
+
+  background: green;
+}
+
+body > * > * {
+  background: rgba(255, 45, 82, 0.2);
+  box-shadow: 0 0 0 3px rgb(255, 45, 82);
+}
+
+body > * > *::before {
+  color: white;
+
+  background: rgb(255, 45, 82);
+}
+
+body > * > * > * {
+  background: rgba(234, 255, 45, 0.2);
+  box-shadow: inset 0 0 0 2px rgb(234, 255, 45);
+
+}
+
+body > * > * > *::before {
+  color: black;
+
+  background: rgb(234, 255, 45);
+}
+
+.main-header::before {
+  content: ".main-header";
+}
+
+.container::before {
+  content: ".container";
+}
+
+.main-header .container::before {
+  top: auto;
+  bottom: -28px;
+}
+
+.main-navigation::before {
+  content: ".main-navigation";
+}
+
+.user-block::before {
+  content: ".user-block";
 }

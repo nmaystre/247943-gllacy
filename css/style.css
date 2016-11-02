@@ -1,26 +1,46 @@
+/*
+@font-face {
+  font-family: 'Roboto';
+  src: url("fonts/Roboto-Regular.ttf");
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url("fonts/Roboto-Medium.ttf");
+  font-weight: bolder;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url("fonts/Roboto-Bold.ttf");
+  font-weight: bold;
+}
+ шрифты не подключились, не могу понять в чем дело */
+
+
 body {
-  font-size: 16pt;
-  line-height: 22pt;
+  margin: 0;
+  font-size: 16px;
+  line-height: 22px;
   color: #ffffff;
-  font-weight: regular;
-  font-family: "Roboto";
-  background-color: #849d8f; /* я пока оставила такой цвет чтобы видеть текст в макете */
+  font-weight: 400;
+  font-family: 'Roboto', sans-serif;
+  background-color: #849d8f;
 }
 
 h2 {
-  font-size: 35pt;
-  line-height: 41pt;
+  font-size: 35px;
+  line-height: 41px;
   color: #ffffff;
-  font-weight: bold;
-  font-family: "Roboto";
+  font-weight: 700;
+  font-family: 'Roboto', sans-serif;
 }
 
 h3 {
-  font-size: 16pt;
-  line-height: 22pt;
+  font-size: 16px;
+  line-height: 22px;
   color: #ffffff;
-  font-weight: medium;
-  font-family: "Roboto";
+  font-weight: 500;
+  font-family: 'Roboto', sans-serif;
 }
 
 .clearfix::after {
@@ -29,151 +49,186 @@ h3 {
   clear: both;
 }
 
-.container {
-  width: 1150px;
-  padding: 0 27px;
-  margin: 0 auto;
-  min-height: 70px;
-}
-
-.logo {
-  width: 155px;
-  float: left;
-  min-height: 70px;
-  background-color: black;
-}
-
-.main-navigation {
-  width: 400px;
-  float: left;
-  min-height: 70px;
-  background-color: red;
-}
-
 .dropdown-block {
-  visibility: hidden;
-  position: absolute;
+  display: none;
 }
 
-.main-navigation > ul > li {
-  float: none;
-  display: inline-block;
+.container {
+  width: 1146px;
+  margin: 0 auto;
+  padding: 0 27px;
 }
 
-.user-block {
-  width: 293px;
-  float:right;
-  min-height: 70px;
-  background-color: blue;
-}
-
-.info {
-  width: 293px;
-  float:right;
-  min-height: 70px;
-  background-color: purple;
-}
-
-
-
-
-
-/*======================================
- Системное оформление - не изменять
-=======================================*/
-
-body {
-  padding: 3px;
-}
-
-body > *,
-body > * > *,
-body > * > * > * {
+.main-header .container{
   position: relative;
 }
 
-body > *::before,
-body > * > *::before,
-body > * > * > *::before {
-  content: "";
+.logo {
+  float: left;
+  width: 155px;
+}
+
+.user-block {
+  float:right;
+  width: 450px;
+  text-align: right;
+}
+
+/* .user-block div {
+  display: inline-block;
+} когда я хочу выровнять в ряд поиск - вход - корзину, появляются скрытые ранее элементы: формы и тд.. */
+
+
+.info {
   position: absolute;
+  top: 100px;
+  right: 40px;
+  width: 190px;
+  text-align: right;
+}
 
-  height: 24px;
-  padding: 2px 5px;
+.main-navigation {
+  float: left;
+}
 
-  font-weight: bold;
+.main-navigation li {
+  display: inline-block;
+}
+
+.slider-items {
+  overflow: hidden;}
+
+.slider-wrapper {
+  width: 300%;
+}
+
+.slider-item {
+  float: left;
+  width: 1146px;
+  height: 550px;
+  background-color: pink;
+  text-align: center;
+  vertical-align: bottom;
+}
+
+.slider-item h2 {
+  font-size: 60px;
+  line-height: 60.35px;
+  margin: 0px auto;
+  padding-top: 300px;
+  width: 710px;
+}
+
+/*
+как лучше сделать наложение текста("давайте оба") на изображение мороженок?
+img { position: absolute} ?
+Или лучше вынести мороженки к body? стр 12 получается? */
+
+
+
+.filter-block {
+  display: inline-block;
+  margin-right: 19px;
+  margin-bottom: 16px;
+}
+
+
+.special-item--raspberry {
+  float: left;
+  width: 560px;
+  background-color: #5e021a;
+  background-image: url("/img/backgrounds/raspberry-background.png") no-repeat center top;
+/* не понимаю, что не так и почему фоны не подгружаются*/
+  font-size: 18px;
+}
+
+.special-item--chocolate {
+  float: right;
+  width: 560px;
+  background-color: #371d0e;
+  background-image: url("/img/backgrounds/chocolate-background.png") no-repeat center top;;
+  font-size: 18px;
+}
+
+.special-item--raspberry h3,
+.special-item--chocolate h3 {
+  font-size: 35px;
+}
+
+.goods {
+  font-size: 0px;
+}
+
+.goods-item {
+  display: inline-block;
+  width: 267px;
+  margin: 40px 26px 0 0;
   font-size: 16px;
-  line-height: 24px;
-  font-family: "Courier New", monotype;
-  white-space: nowrap;
+  vertical-align: top;
 }
 
-body > *::before {
-  top: -3px;
-  left: -3px;
+.goods-item:nth-child(4n) {
+  margin-right: 0px;
 }
 
-body > * > *::before {
-  top: -3px;
-  left: -3px;
+.about-info p {
+  display: inline-block;
+  width: 510px;
+  margin-left: 55px;
 }
 
-body > * > * > *::before {
-  top: 0;
-  left: 0;
+.special-item--blog {
+  float: left;
+  width: 560px;
 }
 
-body > * {
-  background: rgba(0, 128, 0, 0.2);
-  box-shadow: 0 0 0 3px green;
+.special-item--subscription {
+  float: right;
+  width: 560px;
 }
 
-body > *::before {
-  color: white;
-
-  background: green;
+.contacts {
+  background-color: #ffffff;
 }
 
-body > * > * {
-  background: rgba(255, 45, 82, 0.2);
-  box-shadow: 0 0 0 3px rgb(255, 45, 82);
+.address-container {
+  float: right;
+  margin: 65px 0px;
+  padding: 30px;
+  width: 305px;
+  background-color: gray;
 }
 
-body > * > *::before {
-  color: white;
-
-  background: rgb(255, 45, 82);
+.footer-social {
+  float: left;
+  width: 267px;
+  margin-right: 26px;
 }
 
-body > * > * > * {
-  background: rgba(234, 255, 45, 0.2);
-  box-shadow: inset 0 0 0 2px rgb(234, 255, 45);
-
+.footer-social a {
+  display: inline-block;
+  margin: 37px 14px 30px 0;
 }
 
-body > * > * > *::before {
-  color: black;
-
-  background: rgb(234, 255, 45);
+.footer-info {
+  float: left;
+  width: 560px;
+  padding-top: 30px;
+  margin-right: 26px;
 }
 
-.main-header::before {
-  content: ".main-header";
+.footer-info-left {
+  float: left;
+  width: 143px;
 }
 
-.container::before {
-  content: ".container";
+.footer-info-right {
+  float: left;
+  width: 174px;
 }
 
-.main-header .container::before {
-  top: auto;
-  bottom: -28px;
-}
-
-.main-navigation::before {
-  content: ".main-navigation";
-}
-
-.user-block::before {
-  content: ".user-block";
+.footer-copyright {
+  float: right;
+  width: 267px;
+  padding-top: 16px;
 }

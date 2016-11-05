@@ -1,22 +1,3 @@
-/*
-@font-face {
-  font-family: 'Roboto';
-  src: url("fonts/Roboto-Regular.ttf");
-  font-weight: normal;
-}
-@font-face {
-  font-family: 'Roboto';
-  src: url("fonts/Roboto-Medium.ttf");
-  font-weight: bolder;
-}
-@font-face {
-  font-family: 'Roboto';
-  src: url("fonts/Roboto-Bold.ttf");
-  font-weight: bold;
-}
- шрифты не подключились, не могу понять в чем дело */
-
-
 body {
   margin: 0;
   font-size: 16px;
@@ -28,16 +9,16 @@ body {
 }
 
 h2 {
-  font-size: 35px;
-  line-height: 41px;
+  font-size: 60px;
+  line-height: 60.35px;
   color: #ffffff;
   font-weight: 700;
   font-family: 'Roboto', sans-serif;
 }
 
 h3 {
-  font-size: 16px;
-  line-height: 22px;
+  font-size: 35px;
+  line-height: 41px;
   color: #ffffff;
   font-weight: 500;
   font-family: 'Roboto', sans-serif;
@@ -74,10 +55,9 @@ h3 {
   text-align: right;
 }
 
-/* .user-block div {
+.user-block > div {
   display: inline-block;
-} когда я хочу выровнять в ряд поиск - вход - корзину, появляются скрытые ранее элементы: формы и тд.. */
-
+}
 
 .info {
   position: absolute;
@@ -93,38 +73,28 @@ h3 {
 
 .main-navigation li {
   display: inline-block;
+  margin-right:28px;
 }
 
 .slider-items {
-  overflow: hidden;}
-
-.slider-wrapper {
-  width: 300%;
+  overflow: hidden;
 }
 
 .slider-item {
-  float: left;
-  width: 1146px;
-  height: 550px;
-  background-color: pink;
   text-align: center;
-  vertical-align: bottom;
+  position: relative;
 }
 
-.slider-item h2 {
-  font-size: 60px;
-  line-height: 60.35px;
-  margin: 0px auto;
-  padding-top: 300px;
+.slider-item h2,
+.slider-buy {
   width: 710px;
+  position: absolute;
+  top: 400px;
+  left: 200px;
 }
 
-/*
-как лучше сделать наложение текста("давайте оба") на изображение мороженок?
-img { position: absolute} ?
-Или лучше вынести мороженки к body? стр 12 получается? */
-
-
+/*  сделала надпись абсолютом. тогда картинка мороженок обрезается хедером и не будет заходить под спецпредложения
+плюс почему-то кнопка теперь выше названия */
 
 .filter-block {
   display: inline-block;
@@ -132,27 +102,29 @@ img { position: absolute} ?
   margin-bottom: 16px;
 }
 
-
-.special-item--raspberry {
+.special-item {
   float: left;
   width: 560px;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 20px;
+}
+
+.special-item + .special-item {
+  margin-left: 26px;
+}
+
+.special-item--raspberry {
   background-color: #5e021a;
-  background-image: url("/img/backgrounds/raspberry-background.png") no-repeat center top;
+  background-image: url("img/backgrounds/raspberry-background.png") no-repeat center top;
 /* не понимаю, что не так и почему фоны не подгружаются*/
   font-size: 18px;
 }
 
 .special-item--chocolate {
-  float: right;
-  width: 560px;
   background-color: #371d0e;
-  background-image: url("/img/backgrounds/chocolate-background.png") no-repeat center top;;
+  background-image: url("img/backgrounds/chocolate-background.png") no-repeat center top;;
   font-size: 18px;
-}
-
-.special-item--raspberry h3,
-.special-item--chocolate h3 {
-  font-size: 35px;
 }
 
 .goods {
@@ -174,21 +146,33 @@ img { position: absolute} ?
 .about-info p {
   display: inline-block;
   width: 510px;
-  margin-left: 55px;
+  padding-left: 55px;
 }
 
 .special-item--blog {
-  float: left;
-  width: 560px;
+  background-color: #ffffff;
+  color: black;
+}
+
+.special-item--blog h3{
+  font-size: 16px;
+  color: black;
 }
 
 .special-item--subscription {
-  float: right;
-  width: 560px;
+  background-color: #ffffff;
+  background-image: url("/img/backgrounds/mail-pattern.png") repeat left top;
+  padding: 5px;
+}
+
+.subscription-form {
+  background-color: #f8f7f4;
+  color: black;
 }
 
 .contacts {
-  background-color: #ffffff;
+  background-color: gray;
+  background-image: url("img/backgrounds/map.jpg");
 }
 
 .address-container {
@@ -196,7 +180,8 @@ img { position: absolute} ?
   margin: 65px 0px;
   padding: 30px;
   width: 305px;
-  background-color: gray;
+  background-color: #ffffff;
+  color: black;
 }
 
 .footer-social {

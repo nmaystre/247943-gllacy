@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>Глейси Шоп</title>
-    <link href="css/style.css" rel="stylesheet">
+    <link href="css/normalize.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
   </head>
   <body>
@@ -33,16 +34,16 @@
         </ul>
       </nav>
         <div class="user-block">
-          <div class="search-container">
-            <form class="search dropdown">
+          <div class="search-container dropdown">
+            <form class="search">
               <button class="search-btn" type="submit"></button>
               <div class="dropdown-block">
-                <input class="search-line" type="search" name="search" value="" placeholder="Что ищем?">
+                <input class="search-line" type="text" name="search" placeholder="Что ищем?">
               </div>
             </form>
           </div>
           <div class="login-container dropdown">
-            <a class="login" href="#">Вход</a>
+            <a class="login dropdown" href="#">Вход</a>
             <div class="dropdown-block">
               <form class="login-form">
                 <input type="email" name="email" placeholder="Электронная почта">
@@ -78,21 +79,21 @@
           </div>
           <div class="slider-items">
             <div class="slider-wrapper">
-              <div class="slider-item">
+              <div class="slider-item" id="slide1">
                 <img src="img/icecream-slider-1.png" width="615" height="615" alt="Крем-брюле и пломбир с малиновым джемом">
                 <div class="slider-buy-wrapper">
                   <h2>Крем-брюле и пломбир с малиновым джемом</h2>
                   <a class="slider-buy button" href="#">Давайте оба!</a>
                 </div>
               </div>
-              <div class="slider-item">
+              <div class="slider-item" id="slide2">
                 <img src="img/icecream-slider-2.png" width="615" height="615" alt="Шоколадный пломбир и лимонный сорбет">
                 <div class="slider-buy-wrapper">
                   <h2>Шоколадный пломбир и лимонный сорбет</h2>
                   <a class="slider-buy button" href="#">Давайте оба!</a>
                 </div>
               </div>
-              <div class="slider-item">
+              <div class="slider-item" id="slide3">
                 <img src="img/icecream-slider-3.png" width="615" height="615" alt="Пломбир с помадкой и клубничный щербет">
                 <div class="slider-buy-wrapper">
                   <h2>Пломбир с помадкой и клубничный щербет</h2>
@@ -118,13 +119,14 @@
 
       <div class="goods">
         <section class="goods-item">
-          <div class="goods-img goods-item--hit"> <!--Поменяла..но goods-item-hit то я оставляю для псевдоэлемента? из inner убираю-->
+          <div class="goods-img goods-item--hit">
             <img src="img/ice-cream/1-1-orange-jam.png" width="267" height="267" alt="Сливочное с апельсиновым джемом и цитрусовой стружкой">
             <div class="goods-price price">
               <span class="price-sum">310</span><span class="price-curr">&#8381;</span><span class="price-measure">/кг</span>
             </div>
           </div>
           <a href="#" class="goods-name">Сливочное с апельсиновым джемом и цитрусовой стружкой</a>
+          <a class="button goods-item--btn" href="#">Быстрый просмотр</a>
         </section>
         <section class="goods-item">
           <div class="goods-img goods-item--hit">
@@ -134,6 +136,7 @@
             </div>
           </div>
           <a href="#" class="goods-name">Сливочно-кофейное с кусочками шоколада</a>
+          <a class="button goods-item--btn" href="#">Быстрый просмотр</a>
         </section>
         <section class="goods-item">
           <div class="goods-img goods-item--hit">
@@ -143,6 +146,7 @@
             </div>
           </div>
           <a href="#" class="goods-name">Сливочно-клубничное с присыпкой из белого шоколада</a>
+          <a class="button goods-item--btn" href="#">Быстрый просмотр</a>
         </section>
         <section class="goods-item">
           <div class="goods-img goods-item--hit">
@@ -152,6 +156,7 @@
             </div>
           </div>
           <a href="#" class="goods-name">Сливочное крем-брюле с карамельной подливкой</a>
+          <a class="button goods-item--btn" href="#">Быстрый просмотр</a>
         </section>
       </div>
       <div class="about">
@@ -167,7 +172,6 @@
         <div class="special-item special-item--blog">
           <h3>Новое в нашем блоге</h3>
           <a class="post" href="#">10  способов сервировки<br>фруктовых щербетов к<br>столу</a>
-          <!-- <img src="img/backgrounds/strawberry-background.png" width="560" height="220" alt="10 способов сервировки фруктовых щербетов к столу"> -->
         </div>
         <div class="special-item special-item--subscription">
           <div class="subscription-form">
@@ -192,7 +196,7 @@
               (с 10 до 20 ежедневно)
             </div>
             <div class="feedback-wrapper dropdown">
-            <a class="button" href="#">Форма обратной связи</a>
+              <a class="button" href="#">Форма обратной связи</a>
               <form class="feedback dropdown-block" action="#" method="post">
                 <h3>Мы обязательно вам ответим!</h3>
                 <input class="feedback-input" type="text" name="Name" value="" placeholder="Как вас зовут?">
@@ -226,7 +230,7 @@
       </section>
       <section class="footer-copyright">
         <a href="#"><img src="img/icons/html-logo.png" width="108" height="38" alt="HTMLAcademy"></a>
-        Сделано в <a href="https://htmlacademy.ru">HTML Academy</a> © 2016
+        Сделано в <a class="academy" href="https://htmlacademy.ru">HTML Academy</a> © 2016
       </section>
     </div>
   </footer>

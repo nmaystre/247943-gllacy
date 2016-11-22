@@ -28,7 +28,7 @@ p {
   font-size: 16px;
   line-height: 22px;
   color: #ffffff;
-  font-weight: 300;
+  font-weight: 400;
   font-family: 'Roboto','Arial', sans-serif;
 }
 
@@ -36,14 +36,14 @@ a {
   font-size: 16px;
   line-height: 18px;
   color: #ffffff;
-  font-weight: 700;
+  font-weight: 500;
   text-decoration: none;
 }
 
 .button {
   display: inline-block;
   padding: 10px 25px;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 18px;
   line-height: 24px;
   vertical-align: top;
@@ -56,6 +56,7 @@ a {
   background:         linear-gradient(to bottom, #f26843 0%, #e74a35 100%);
   border-radius: 100px;
   box-shadow: 0 2px 2px rgba(172, 16, 0, 0.64);
+  border: 0;
 }
 
 .button:hover {
@@ -87,31 +88,40 @@ a {
 
 .dropdown {
   position: relative;
-  margin-top: 23px;
   border-radius: 20px;
+  padding-bottom: 10px;
 }
 
 .dropdown-block {
-  display: none; /* поменять!!! */
+  display: none;
   position: absolute;
-  top: 36px;
+  top: 100%;
+  right: 0;
   margin: 0px;
   padding: 0px;
   background-color: #f8f7f4;
   border-radius: 5px;
   box-shadow: 0 20px 20px #56645c;
+  z-index: 2;
 }
 
 .dropdown:hover .dropdown-block {
   display: block;
 }
 
-.dropdown a:hover,
-.dropdown a:active,
+.dropdown:hover > a,
 .main-navigation a:hover {
 	color: #000000;
 	text-decoration: none;
 	background-color: #ffffff;
+}
+
+.main-navigation .active {
+  background-color: #d07058;
+}
+
+.main-navigation .active::after {
+  display: none;
 }
 
 .container {
@@ -131,143 +141,6 @@ a {
   margin-left: -5px;
 }
 
-.user-block {
-  float:right;
-  width: 450px;
-  text-align: right;
-  font-size: 0px;
-}
-
-.user-block > div {
-  display: inline-block;
-  margin-left: 8px;
-  padding: 10px;
-  vertical-align: middle;
-}
-
-.user-block a {
-  font-size: 14px;
-  line-height: 16px;
-  font-weight: 300;
-  vertical-align: middle;
-}
-
-.user-block .search-container {
-  padding: 16px;
-  background: #a1b5aa url(../img/sprite.png) no-repeat 2px -494px;
-}
-
-.search-container button {
-  display: none;
-}
-
-.user-block .search-container:hover {
-  background: #ffffff url(../img/sprite.png) no-repeat 2px -521px;
-}
-
-.search-container .dropdown-block {
-  right: 0px;
-}
-
-.user-block input,
-.feedback input,
-.subscription-form input {
-  padding: 0px;
-  padding-left: 10px;
-  margin: 20px 15px 0px 15px;
-  width: 240x;
-  height: 45px;
-  border: 1px solid #d3d3d2;
-  border-radius: 5px;
-  font-size: 14px;
-}
-/* ставить outline: none или не надо?*/
-
-.user-block .search-line {
-  width: 300px;
-  margin-bottom: 20px;
-}
-
-.user-block .login-container {
-  padding: 4px 17px 6px 43px;
-  background: #a1b5aa url(../img/sprite.png) no-repeat 11px -437px;
-}
-
-.user-block .login-container:hover {
-  background: #ffffff url(../img/sprite.png) no-repeat 6px -467px;
-}
-
-.user-block .login-container:hover a,
-.user-block .cart-container:hover a {
-  color: #373737;
-}
-
-.login-container .dropdown-block {
-  left: -200px;
-  width: 280px;
-  height: 215px;
-  z-index: 1;
-}
-
-.login-container .dropdown-block input {
-  width: 240px;
-}
-
-.login-container .form-half-width {
-  width: 50%;
-  box-sizing: border-box;
-  float: left;
-  padding: 20px;
-  padding-right: 0px;
-  text-align: left;
-}
-
-.login-container .form-half-width:last-child {
-  padding-left: 0px;
-  padding-right: 20px;
-}
-
-.login-container button {
-  float: left;
-  margin: 0px;
-}
-
-.login-container .dropdown-block a {
-  font-size: 13px;
-  line-height: 24px;
-  color: #4c4c4c;
-  text-decoration: underline;
-}
-
-.user-block .cart-container {
-  padding: 4px 34px 6px 45px;
-  background: #a1b5aa url(../img/sprite.png) no-repeat 12px -377px;
-  vertical-align: top;
-}
-
-/* .user-block .cart-container:active {
-  padding-left: 35px;
-  padding-right: 25px;
-  background: #ffffff url(../img/sprite.png) no-repeat 4px -408px;
-} */
-
-.info {
-  position: absolute;
-  top: 70px;
-  right: 27px;
-  width: 180px;
-  font-size: 14px;
-  text-align: right;
-}
-
-/* текст в инфо сильно отличается, это не страшно? */
-
-
-.info-number {
-  font-size: 22px;
-  line-height: 24px;
-  white-space: nowrap;
-}
 
 /* основное меню и подменю */
 
@@ -284,7 +157,7 @@ a {
 
 .main-navigation li {
   display: inline-block;
-  margin-top: 23px;
+  padding-top: 23px;
   vertical-align: top;
   font-size: 0px;
 }
@@ -312,6 +185,7 @@ a {
   box-shadow: inset 0 2px 1px #696969;
 }
 
+.dropdown:hover > a::after,
 .main-navigation a:hover::after {
 	border: none;
 }
@@ -346,12 +220,6 @@ a {
   font-weight: 300;
   border-radius: 0;
 }
-
-/* теперь выпадающее меню
-- неактивны ссылки (не выделются при наведении)
-- z-index не влияет на отображение выпадашки
-- сделать отступ так и не получилось
-*/
 
 .main-navigation-sub li:last-child {
   margin-bottom: 7px;
@@ -394,6 +262,311 @@ a {
 	background-color: #ffffff;
 }
 
+/* поиск и тд */
+
+.user-block {
+  float:right;
+  padding-top: 23px;
+  width: 450px;
+  text-align: right;
+  font-size: 0px;
+}
+
+.user-block > div {
+  display: inline-block;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.user-block a {
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 300;
+  vertical-align: middle;
+}
+
+.login-btn,
+.search-btn,
+.cart-btn {
+  display: inline-block;
+  padding: 8px 15px 8px 45px;
+  vertical-align: middle;
+  background-color: #a1b5aa;
+  background-image: url(../img/sprite.png);
+  background-repeat: no-repeat;
+  border-radius: 30px;
+}
+
+.login-btn:hover,
+.search-btn:hover,
+.cart-btn:hover {
+  background-color: #ffffff;
+  color: #323232;
+}
+
+.search-btn {
+  padding: 16px;
+  background-position: 2px -494px;
+}
+
+.dropdown:hover .search-btn {
+  background-position: 2px -521px;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+.dropdown-block input:hover,
+.dropdown-block textarea:hover,
+.subscription-form input:hover{
+  border: 2px solid #c7c6c5;
+}
+
+.dropdown-block input:focus,
+.dropdown-block textarea:hover,
+.subscription-form input:focus {
+  border: 2px solid #8fbdec;
+}
+
+.dropdown-block input,
+.dropdown-block textarea,
+.subscription-form input {
+  padding: 6px 10px;
+  margin: 20px 15px 0px 15px;
+  width: 240px;
+  height: 45px;
+  box-sizing: border-box;
+  border: 1px solid #d3d3d2;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #999999;
+  font-weight: 400;
+}
+
+.dropdown-block input + label,
+.subscription-form input + label {
+  display: block;
+  position: relative;
+  white-space: nowrap;
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+  color: #999999;
+}
+
+ /* вот тут и дальше я не уверена (совсем) что верно...
+даже скорее я уверена что и до этого не было верно */
+
+.dropdown-block input + label > span,
+.subscription-form input +label > span {
+  position: absolute;
+  bottom: 10px;
+  left: 30px;
+  color: #999999;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.dropdown-block input:focus + label > span,
+.subscription-form input:focus +label > span {
+  display: block;
+  position: absolute;
+  bottom: 50px;
+  left: 25px;
+  margin: 0;
+  padding: 0;
+  font-size: 11px;
+  line-height: 13px;
+  color: #5b9ddf;
+}
+
+.dropdown-block input:valid + label > span,
+.subscription-form input:valid +label > span {
+  display: block;
+  position: absolute;
+  bottom: 50px;
+  left: 25px;
+  margin: 0;
+  padding: 0;
+  font-size: 11px;
+  line-height: 13px;
+  color: #999999;
+}
+
+/*
+.dropdown-block input:invalid + label > span,
+.subscription-form input:invalid +label > span {
+  display: block;
+  position: absolute;
+  bottom: 50px;
+  left: 25px;
+  margin: 0;
+  padding: 0;
+  font-size: 11px;
+  line-height: 13px;
+  color: #e95139;
+}
+*/
+
+
+
+
+.user-block .search-line {
+  width: 300px;
+}
+
+.user-block .search {
+  padding-bottom: 20px;
+}
+
+.login-btn {
+  background-position: 11px -437px;
+}
+
+.dropdown:hover .login-btn {
+  background-position: 11px -466px;
+}
+
+.login-container .dropdown-block {
+  width: 280px;
+  height: 215px;
+}
+
+.login-container .dropdown-block input {
+  width: 240px;
+}
+
+.login-container .form-half-width {
+  width: 50%;
+  box-sizing: border-box;
+  float: left;
+  padding: 20px;
+  padding-right: 0px;
+  text-align: left;
+}
+
+.login-container .form-half-width:last-child {
+  padding-left: 0px;
+  padding-right: 20px;
+}
+
+.login-container button {
+  float: left;
+  margin: 0px;
+}
+
+.login-container .dropdown-block a {
+  font-size: 13px;
+  line-height: 24px;
+  color: #4c4c4c;
+  text-decoration: underline;
+}
+
+.cart-btn {
+  background-position: 12px -377px;
+  padding-right: 35px;
+}
+
+.dropdown:hover .cart-btn,
+.active .cart-btn {
+  background-position: 12px -407px;
+  background-color: #ffffff;
+  color: #323232;
+}
+
+.active .cart {
+  font-size: 13px;
+  line-height: 16px;
+  color: #323232;
+}
+
+.cart {
+  width: 530px;
+  padding: 20px 15px;
+  box-sizing: border-box;
+  font-size: 15px;
+  line-height: 18px;
+  font-weight: 700;
+}
+
+
+.cart a {
+  font-size: 13px;
+  line-height: 16px;
+  color: #323232;
+}
+
+.cart table {
+  border-collapse: collapse;
+  text-align: right;
+  margin-bottom: 15px;
+  font-weight: 400;
+  float: right;
+
+}
+
+.cart td {
+  padding: 10px;
+}
+
+.cart td tr:first-child {
+  padding-left: 0;
+}
+
+.cart tr td:nth-child(3) {
+  width: 220px;
+  text-align: left;
+}
+
+.cart-price {
+  color: #a0a0a0;
+}
+
+ .cart tr:last-child{
+  border-bottom: 1px solid #cacac7;
+ }
+
+.delete-btn::before,
+.delete-btn::after {
+  content: "";
+  position: absolute;
+  left: 20px;
+  width: 11px;
+  height: 1px;
+  border-radius: 1px;
+  background-color: #3e3e3e;
+}
+
+.delete-btn::before {
+  transform: rotate(45deg);
+}
+.delete-btn::after {
+  transform: rotate(-45deg);
+}
+
+.cart .button {
+  margin-top: 15px;
+}
+
+
+.info {
+  position: absolute;
+  top: 70px;
+  right: 27px;
+  width: 180px;
+  font-size: 14px;
+  text-align: right;
+}
+
+.info-number {
+  font-size: 22px;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
 /*  слайдер */
 
 body > input[type="radio"] {
@@ -414,11 +587,6 @@ body > input[type="radio"] {
   margin: 0 auto;
   padding: 0 20px;
 }
-
-
-/* не понимаю что делать дальше со слайдером:
-- не понимаю как скрыть лишные слайды (когда пыталась исчезает все)
-- не понимаю как оживить label от радиобаттонов */
 
 .slider-item {
   display: none;
@@ -480,7 +648,7 @@ body > input[type="radio"] {
 }
 
 .slider-background {
-  position: fixed;
+  position: absolute;
   width: 100%;
   height: 100%;
 }
@@ -503,11 +671,216 @@ body > input[type="radio"] {
 }
 
 
-.filter-block {
+.filter-block,
+.filter-container .form-btn {
   display: inline-block;
   margin-right: 19px;
   margin-bottom: 16px;
+  vertical-align: bottom;
 }
+
+.breadcrumbs a {
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 400;
+  position: relative;
+  padding-right: 20px;
+}
+
+.breadcrumbs a::before {
+  content: "»";
+	position: absolute;
+	bottom: 0px;
+	left: -15px;
+}
+
+.breadcrumbs a:first-child::before {
+  display: none;
+}
+
+.breadcrumbs a::after {
+  content: "";
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+  right: 20px;
+	border-bottom: 1px solid #aebeb5;
+}
+
+.breadcrumbs a:hover,
+.breadcrumbs a:focus,
+.breadcrumbs a:active {
+  color: #ffbc9e;
+}
+
+.breadcrumbs a:hover::after,
+.breadcrumbs a:focus::after,
+.breadcrumbs a:active::after {
+  border-color: #ffbc9e;
+}
+
+.breadcrumbs a:hover::before,
+.breadcrumbs a:focus::before,
+.breadcrumbs a:active::before {
+  color: #ffffff;
+}
+
+.breadcrumbs .active::after{
+  display: none;
+}
+
+.filter-label > label,
+.filter-label {
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 500px;
+  padding: 0 0 5px 15px;
+}
+
+.filter-choose label {
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 500;
+}
+
+.filter-choose,
+.form-btn {
+  padding: 8px 15px;
+  vertical-align: middle;
+  background-color: #abbcb2;
+  border-radius: 30px;
+}
+
+.form-btn {
+  width: 145px;
+  height: 36px;
+  box-sizing: border-box;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 500px;
+  padding: 8px 25px;
+  margin: 0;
+}
+
+.form-btn:hover,
+.form-btn:focus {
+  background-color: #ffffff;
+  color: #323232;
+}
+/* откуда берется эта серая рамка при/после нажатия?*/
+.form-btn:active {
+  background-color: #eaeaea;
+  border: none;
+  color: #323232;
+  box-shadow: inset 0px 1px 1px 1px #6c6d6c;
+  outline: none;
+}
+
+/* выпадающий список */
+
+.filter-select {
+  position: relative;
+  width: 190px;
+  overflow: hidden;
+}
+
+select {
+  width: 220px;
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: 500px;
+  color: #ffffff;
+  cursor:pointer;
+}
+
+.filter-select::after {
+  content: "";
+  position: absolute;
+  top: 17px;
+  right: 25px;
+  border: 6px solid #ffffff;
+  border-bottom-width: 0;
+  border-right-color: transparent;
+  border-left-color: transparent;
+}
+/* или лучше было сделать превдоэлемент для label? */
+
+
+/* range-filter */
+
+.price-controls {
+  font-size: 0;
+  padding-left: 10px;
+}
+
+.price-controls label {
+  display: inline-block;
+  width: 50%;
+  font-size: 14px;
+  padding: 0;
+}
+
+.price-controls input {
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 500;
+  text-align: center;
+  color: #ffffff;
+  width: 30px;
+  padding: 0px;
+  background-color: transparent;
+  border: none;
+}
+
+.range-controls {
+  position: relative;
+  width: 220px;
+  height: 10px;
+  margin-top: 10px;
+  padding: 19px 15px;
+  vertical-align: middle;
+  background-color: #abbcb2;
+  border-radius: 30px;
+}
+
+.range-controls .scale {
+  height: 4px;
+  background-color: #d1dad3;
+}
+
+.range-controls .bar {
+  width: 50%;
+  height: 4px;
+  background-color: #f8f7f4;
+}
+
+.range-controls .toggle {
+  position: absolute;
+  top: 10px;
+  left: 0px;
+  width: 4px;
+  height: 4px;
+  border: 8px solid #fff;
+  border-radius: 50%;
+  background-color: #f8f7f4;
+  box-shadow: 0 2px 1px 0 #a2b0a7;
+  cursor: pointer;
+}
+
+.range-controls .toggle-min {
+  left: 10px;
+}
+
+.range-controls .toggle-max {
+  left: 125px;
+}
+
+
+
 
 .specials {
   position: relative;
@@ -574,8 +947,8 @@ body > input[type="radio"] {
 .goods-item--hit::before {
   content: "";
   position: absolute;
-  left:10px;
-  top: 10px;
+  left:0px;
+  top: 0px;
   padding: 30px;
   background: #ffffff url(../img/sprite.png) no-repeat -5px -266px;
   border-radius: 50px;
@@ -591,17 +964,21 @@ body > input[type="radio"] {
   padding-right: 35px;
   font-size: 45px;
   line-height: 45px;
+  font-weight: 700;
   background: transparent url(../img/sprite.png) no-repeat 75px -540px;
 }
 
 .goods-price .price-measure {
   font-size: 35px;
   line-height: 45px;
+  font-weight: 700;
 }
 
 .goods-item .goods-name {
   display: inline;;
-  font-size: 14px;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 400;
   border-bottom: 1px solid #a7b8ad;
 /* как выровнять текст (сделать отступы?)*/
 }
@@ -760,11 +1137,9 @@ body > input[type="radio"] {
 
 .subscription-form button {
   float:right;
-  padding: 10px;
+  padding: 10px 15px;
   margin: 10px 12px auto 0px;
 }
-
-
 
 .subscription-form input {
   float: left;
@@ -772,16 +1147,85 @@ body > input[type="radio"] {
   width: 360px;
 }
 
-/*  поменялась тень на кнопке в форме, хз почему
-и хз почему не получается сдвиуть кнопку справо */
+.subscription-form input +label > span {
+  top: 20px;
+  left: 10px;
+}
+
+.subscription-form input:focus +label > span,
+.subscription-form input:valid +label > span {
+  top: -5px;
+  left: 10px;
+}
 
 .contacts {
   position: relative;
   display: block;
   height: auto;
   margin-top: 40px;
-  background: #ffffff url("../img/backgrounds/map.jpg") no-repeat left top;
+  background: transparent url("../img/backgrounds/map.jpg") no-repeat center center;
 }
+
+#map {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+.feedback-wrapper .dropdown-block {
+  display: none;
+  position: absolute;
+  top: -500px; /*почему блок так странно себя ведет?*/
+  right: 50%;
+  width: 480px;
+  height: 445px;
+  padding: 10px;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.feedback-wrapper .dropdown-block h3 {
+  color: #323232;
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 400;
+  margin: 0;
+  padding: 10px 10px 0 10px;
+}
+
+.feedback-wrapper .feedback-btn {
+  float: right;
+  margin: 20px 10px;
+}
+
+.feedback-wrapper textarea {
+  width: 430px;
+  height: 150px;
+  box-sizing: border-box;
+}
+
+.feedback .delete-btn {
+  float: right;
+  position: relative;
+  padding: 10px;
+  background: none;
+  border: none;
+  font-size: 0px;
+  cursor: pointer;
+}
+
+.feedback .delete-btn::before,
+.feedback .delete-btn::after {
+  height: 20px;
+  width: 2px;
+  top: 0px;
+  left: 10px;
+}
+
+
+
 
 .address-container {
   float: right;

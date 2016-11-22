@@ -14,7 +14,7 @@
         </div>
         <nav class="main-navigation">
           <ul>
-            <li><a class="active" href="#">Каталог</a>
+            <li class="dropdown"><a class="active" href="#">Каталог</a>
               <ul class="main-navigation-sub dropdown-block">
                 <li><a href="#">Новинки</a></li>
                 <li><a href="#">Сливочное</a></li>
@@ -27,21 +27,21 @@
             <li><a href="#">О Компании</a></li>
           </ul>
         </nav>
-        <div class="user-block">
-          <div class="search-container">
-          <form class="search dropdown">
-              <button class="search-btn" type="submit"></button>
-          <div class="dropdown-block">
-                <input class="search-line" type="search" name="search" value="" placeholder="Что ищем?">
-              </div>
-            </form>
-          </div>
-          <div class="login-container dropdown">
-            <a class="login" href="#">Вход</a>
-            <div class="dropdown-block">
-              <form class="login-form">
-                <input type="email" name="email" placeholder="Электронная почта">
-                <input type="password" name="password" placeholder="Пароль">
+          <div class="user-block">
+            <div class="search-container dropdown">
+              <a class="search-btn"></a>
+              <form class="search dropdown-block">
+                <input class="search-line" type="text" name="search" id="search" required>
+                <label for="search"><span>Что ищем?</span></label>
+              </form>
+            </div>
+            <div class="login-container dropdown">
+              <a class="login-btn" href="#">Вход</a>
+              <form class="login-form dropdown-block">
+                <input type="email" name="email" id="login-email" required>
+                <label for="login-email"><span>Электронная почта</span></label>
+                <input type="password" name="password" id="login-password" required>
+                <label for="login-password"><span>Пароль</span></label>
                 <div class="form-half-width">
                   <button class="button" type="submit">Войти</button>
                 </div>
@@ -51,34 +51,30 @@
                 </div>
               </form>
             </div>
-          </div>
-          <div class="cart-container">
-            <a class="cart dropdown" href="#">2 товара</a>
-            <div class="dropdown-block">
-              <table>
-                <tr>
-                  <td><a class="cart-delete" href="#"></a></td>
-                  <td><img src="img/ice-cream/1-1-orange-jam.png" width="34" height="34" alt="good1"></td>
-                  <td><a href="#">Пломбир с апельсиновым джемом</a></td>
-                  <td>1,5 кг x 200 руб.</td>
-                  <td>300 руб.</td>
-                </tr>
-                <tr>
-                  <td><a class="cart-delete" href="#"></a></td>
-                  <td><img src="img/ice-cream/1-3-strawberry-choco.png" width="34" height="34" alt="good2"></td>
-                  <td><a href="#">Клубничный пломбир с присыпкой из белого шоколада</a></td>
-                  <td>1,5 кг x 300 руб.</td>
-                  <td>450 руб.</td>
-                </tr>
-                <tr>
-                  <td>Итого:</td>
-                  <td>750 руб.</td>
-                </tr>
-              </table>
-              <button class="button" type="submit">Оформить заказ</button>
+            <div class="cart-container dropdown active">
+              <a class="cart-btn" href="#">2 товара</a>
+              <div class="dropdown-block cart">
+                <table>
+                  <tr>
+                    <td><a class="delete-btn" href="#"></a></td>
+                    <td><img src="img/ice-cream/1-1-orange-jam.png" width="34" height="34" alt="good1"></td>
+                    <td><a href="#">Пломбир с апельсиновым джемом</a></td>
+                    <td>1,5 кг x <span class="cart-price">200 руб.</span></td>
+                    <td>300 руб.</td>
+                  </tr>
+                  <tr>
+                    <td><a class="delete-btn" href="#"></a></td>
+                    <td><img src="img/ice-cream/1-3-strawberry-choco.png" width="34" height="34" alt="good2"></td>
+                    <td><a href="#">Клубничный пломбир с присыпкой из белого шоколада</a></td>
+                    <td>1,5 кг x <span class="cart-price">300 руб.</span></td>
+                    <td>450 руб.</td>
+                  </tr>
+                  </table>
+                  Итого: <span class="cart-sum">750 руб.</span><br><!-- ну не придумала я как еще перенести кнопку от текста, огромный отсуп писать мне кажется еще костыльней -->
+                <button class="button" type="submit">Оформить заказ</button>
+              </div>
             </div>
           </div>
-        </div>
         <div class="info">
           С 10 до 20, ежедневно
           <span class="info-number">8 812 450-25-25</span>
@@ -95,27 +91,39 @@
         <h1>Сливочное мороженое</h1>
           <form action="/" method="post">
             <div class="filter-container">
+
               <div class="filter-block">
                 <span class="filter-label"><label for="sort">Сортировка:</label></span>
-                <div class="filter-choose">
+                <div class="filter-choose filter-select">
                   <select id="sort">
-                    <option value="popularity">По популярности</option>
-                    <option value="low-cost">Сначала недорогие</option>
-                    <option value="high-cost">Сначала дорогие</option>
-                    <option value="fat">По жирности</option>
+                    <option value="popularity">по популярности</option>
+                    <option value="low-cost">сначала недорогие</option>
+                    <option value="high-cost">сначала дорогие</option>
+                    <option value="fat">по жирности</option>
                   </select>
                 </div>
               </div>
-              <div class="filter-block">
-                <span class="filter-label"><label for="range">Цена:</label></span>
+              <div class="filter-block range-filter">
+                <!-- <span class="filter-label"><label for="range">Цена:</label></span>
                 <div class="filter-choose">
                   <input type="range" min="0" max="750" step="10" id="range" name="range">
+                </div> -->
+                <div class="price-controls">
+                  <label class="min-price">Цена: <input name="min-price" type="text" value="100"> руб. -</label>
+                  <label class="max-price"><input name="max-price" type="text" value="500"> руб.</label>
+                </div>
+                <div class="range-controls">
+                  <div class="scale">
+                    <div class="bar"></div>
+                    <div class="toggle toggle-min"></div>
+                    <div class="toggle toggle-max"></div>
+                  </div>
                 </div>
               </div>
               <div class="filter-block">
-                <span class="filter-label"><legend>Жирность:</legend></span>
+                <span class="filter-label">Жирность:</span>
                 <!--валидатор ругается "Element legend not allowed as child of element span in this context. (Suppressing further errors from this subtree.)"
-              получается fieldset нужен был все-таки? или просто моенять местами?  завернуть span в legend?-->
+              получается fieldset нужен был все-таки? или просто менять местами?  завернуть span в legend?-->
                 <div class="filter-choose">
                   <label class="fat-content"><input type="radio" id="zero" name="zero"><span>0%</span></label>
                   <label class="fat-content"><input type="radio" id="ten" name="ten" checked><span>до 10%</span></label>
@@ -124,7 +132,7 @@
                 </div>
               </div>
               <div class="filter-block">
-                <span class="filter-label"><legend>Наполнители:</legend></span>
+                <span class="filter-label">Наполнители:</span>
                 <div class="filter-choose">
                   <label class="topping-name"><input type="checkbox" id="chocolate" name="chocolate" checked><span>шоколадные</span></label>
                   <label class="topping-name"><input type="checkbox" id="sugar" name="sugar" checked><span>сахарные присыпки</span></label>
@@ -275,24 +283,24 @@
     <footer>
       <div class="container clearfix">
         <section class="footer-social">
-          <a class="social-btn social-btn-tw" href="#"><img src="img/icons/social-tw.png" width="33" height="33" alt="twitter"></a>
-          <a class="social-btn social-btn-in" href="#"><img src="img/icons/social-ig.png" width="33" height="33" alt="instagram"></a>
-          <a class="social-btn social-btn-fb" href="#"><img src="img/icons/social-fb.png" width="33" height="33" alt="facebook"></a>
-          <a class="social-btn social-btn-vk" href="#"><img src="img/icons/social-vk.png" width="33" height="33" alt="vkontakte"></a>
+          <a class="social-btn social-btn-tw" href="#"><img src="img/icons/social-tw.png" width="32" height="32" alt="twitter"></a>
+          <a class="social-btn social-btn-ig" href="#"><img src="img/icons/social-ig.png" width="32" height="32" alt="instagram"></a>
+          <a class="social-btn social-btn-fb" href="#"><img src="img/icons/social-fb.png" width="32" height="32" alt="facebook"></a>
+          <a class="social-btn social-btn-vk" href="#"><img src="img/icons/social-vk.png" width="32" height="32" alt="vkontakte"></a>
         </section>
         <section class="footer-info">
-          <div class="footer-info-half">
+          <div class="footer-info-left">
             <b><a href="#">Для поставщиков</a></b>
             <a href="#">О производстве </a>
           </div>
-          <div class="footer-info-half">
+          <div class="footer-info-right">
             <a href="#">Наши документы </a>
             <a href="#">Экологические стандарты </a>
           </div>
         </section>
         <section class="footer-copyright">
           <a href="#"><img src="img/icons/html-logo.png" width="108" height="38" alt="HTMLAcademy"></a>
-          Сделано в <a href="https://htmlacademy.ru">HTML Academy</a> © 2016
+          Сделано в <a class="academy" href="https://htmlacademy.ru">HTML Academy</a> © 2016
         </section>
       </div>
     </footer>

@@ -6,6 +6,7 @@
     <link href="css/normalize.css" rel="stylesheet" type="text/css">
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <script src="js/script.js" type="text/javascript"></script>
   </head>
   <body>
   <input type="radio" id="btn-1" name="toggle" checked>
@@ -20,7 +21,7 @@
       </div>
       <nav class="main-navigation">
         <ul>
-          <li class="dropdown active"><a href="#">Каталог</a>
+          <li class="dropdown"><a href="#">Каталог</a>
             <ul class="main-navigation-sub dropdown-block">
               <li><a href="#">Новинки</a></li>
               <li><a href="#">Сливочное</a></li>
@@ -37,14 +38,17 @@
           <div class="search-container dropdown">
             <a class="search-btn"></a>
             <form class="search dropdown-block">
-              <input class="search-line" type="text" name="search" placeholder="Что ищем?">
+              <input class="search-line" type="text" name="search" id="search" required>
+              <label for="search"><span>Что ищем?</span></label>
             </form>
           </div>
           <div class="login-container dropdown">
-            <a class="login" href="#">Вход</a>
+            <a class="login-btn" href="#">Вход</a>
             <form class="login-form dropdown-block">
-              <input type="email" name="email" placeholder="Электронная почта">
-              <input type="password" name="password" placeholder="Пароль">
+              <input type="email" name="email" id="login-email" required>
+              <label for="login-email"><span>Электронная почта</span></label>
+              <input type="password" name="password" id="login-password" required>
+              <label for="login-password"><span>Пароль</span></label>
               <div class="form-half-width">
                 <button class="button" type="submit">Войти</button>
               </div>
@@ -55,7 +59,7 @@
             </form>
           </div>
           <div class="cart-container dropdown">
-            <a class="cart" href="#">Пусто</a>
+            <a class="cart-btn" href="#">Пусто</a>
           </div>
         </div>
       <div class="info">
@@ -171,39 +175,42 @@
           <div class="subscription-form">
           <form action="/" method="get">
             <p>Подпишитесь на нашу сладкую рассылку и будете всегда в курсе всего самого вкусного, что у нас происходит. Обещаем не спамить и не слать всякой не нужной ерунды. Честно =) </p>
-            <input type="email" name="email" value="" placeholder="Электронная почта">
+            <input type="email" name="email" value="" id="subscription-email" required>
+            <label for="subscription-email"><span>Электронная почта</span></label>
             <button class="button" type="submit">Отправить</button>
           </form>
         </div>
       </div>
       </div>
-      <div class="contacts clearfix">
-        <div class="map" id="map">
-          <img class="pin" src="img/pin.png" width="218" height="142" alt="pin">
-          <div class="address-container">
-            <div class="contacts-info">
-              Адрес главного офиса и<br>
-              офлайн магазина:
-              <p class="address">ул. Большая Конюшенная<br> 19/8, Санкт-Петербург</p>
-              Для заказов по телефону:
-              <p class="tel">8 812 450-25-25</p>
-              (с 10 до 20 ежедневно)
-            </div>
-            <div class="feedback-wrapper dropdown">
-              <a class="button" href="#">Форма обратной связи</a>
-              <form class="feedback dropdown-block" action="#" method="post">
-                <h3>Мы обязательно вам ответим!</h3>
-                <input class="feedback-input" type="text" name="Name" value="" placeholder="Как вас зовут?">
-                <input class="feedback-input" type="email" name="email" value="" placeholder="Ваша почта для ответа?">
-                <textarea class="feedback-input" cols="30" rows="15">Напишите что-нибудь...</textarea>
-                <button class="feedback-btn button" type="submit">Отправить</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </main>
+  <div class="contacts clearfix">
+    <div id="map"></div>
+    <img class="pin" src="img/pin.png" width="218" height="142" alt="pin">
+    <div class="address-container container">
+      <div class="contacts-info">
+        Адрес главного офиса и<br>
+        офлайн магазина:
+        <p class="address">ул. Большая Конюшенная<br> 19/8, Санкт-Петербург</p>
+        Для заказов по телефону:
+        <p class="tel">8 812 450-25-25</p>
+        (с 10 до 20 ежедневно)
+      </div>
+      <div class="feedback-wrapper dropdown">
+        <a class="button show-feedback" href="#">Форма обратной связи</a>
+        <form class="feedback dropdown-block" action="#" method="post">
+          <button class="delete-btn" type="button" title="Закрыть">Закрыть</button>
+          <h3>Мы обязательно вам ответим!</h3>
+          <input class="feedback-input" type="text" name="Name" value="" id="feedback-name" required>
+          <label for="feedback-name"><span>Как вас зовут?</span></label>
+          <input class="feedback-input" type="email" name="email" value="" id="feedback-email" required>
+          <label for="feedback-email"><span>Ваша почта для ответа?</span></label>
+          <textarea class="feedback-input" cols="30" rows="15" id="feedback-text">Напишите что-нибудь...</textarea>
+          <button class="feedback-btn button" type="submit">Отправить</button>
+        </form>
+      </div>
+    </div>
+  </div>
   <footer>
     <div class="container clearfix">
       <section class="footer-social">

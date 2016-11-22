@@ -184,8 +184,8 @@
       </div>
     </div>
   </main>
-  <div class="contacts clearfix">
-    <div id="map"></div>
+  <div class="contacts clearfix container">
+    <div class="map" id="map"></div>
     <img class="pin" src="img/pin.png" width="218" height="142" alt="pin">
     <div class="address-container container">
       <div class="contacts-info">
@@ -198,16 +198,6 @@
       </div>
       <div class="feedback-wrapper dropdown">
         <a class="button show-feedback" href="#">Форма обратной связи</a>
-        <form class="feedback dropdown-block" action="#" method="post">
-          <button class="delete-btn" type="button" title="Закрыть">Закрыть</button>
-          <h3>Мы обязательно вам ответим!</h3>
-          <input class="feedback-input" type="text" name="Name" value="" id="feedback-name" required>
-          <label for="feedback-name"><span>Как вас зовут?</span></label>
-          <input class="feedback-input" type="email" name="email" value="" id="feedback-email" required>
-          <label for="feedback-email"><span>Ваша почта для ответа?</span></label>
-          <textarea class="feedback-input" cols="30" rows="15" id="feedback-text">Напишите что-нибудь...</textarea>
-          <button class="feedback-btn button" type="submit">Отправить</button>
-        </form>
       </div>
     </div>
   </div>
@@ -231,9 +221,19 @@
       </section>
       <section class="footer-copyright">
         <a href="#"><img src="img/icons/html-logo.png" width="108" height="38" alt="HTMLAcademy"></a>
-        Сделано в <a class="academy" href="https://htmlacademy.ru">HTML Academy</a> © 2016
+        <p>Сделано в <a class="academy" href="https://htmlacademy.ru">HTML Academy</a> © 2016</p>
       </section>
     </div>
   </footer>
+  <form class="feedback dropdown-block" action="#" method="post">
+    <button class="delete-btn" type="button" title="Закрыть">Закрыть</button>
+    <h3>Мы обязательно вам ответим!</h3>
+    <input class="feedback-input" type="text" name="Name" value="" id="feedback-name" required>
+    <label for="feedback-name"><span>Как вас зовут?</span></label>
+    <input class="feedback-input" type="email" name="email" value="" id="feedback-email" required>
+    <label for="feedback-email"><span>Ваша почта для ответа?</span></label>
+    <textarea class="feedback-input" cols="30" rows="15" id="feedback-text">Напишите что-нибудь...</textarea>
+    <button class="feedback-btn button" type="submit">Отправить</button>
+  </form>
   </body>
 </html>

@@ -1285,50 +1285,45 @@ input:disabled:hover + span::before {
   height: 430px;
   margin: 0;
   padding: 0;
-  z-index: 1;
-}
-
-.pin {
-  position: absolute;
-  top: 140px;
-  left: 270px;
 }
 
 .address-container {
-  position: absolute;
-  right: 5%;
+  float: right;
+  position: relative;
   margin-top: 60px;
   padding: 30px 20px;
   width: 305px;
   box-sizing: border-box;
   background-color: #ffffff;
   border-radius: 10px;
-  z-index: 2;
 }
-
-.address-container .contacts-info {
+.address-container p {
   font-size: 14px;
   line-height: 20px;
   color: #000000;
-  margin-bottom: 30px;
-}
-
-.contacts-info p {
-  font-size: 18px;
-  line-height: 22px;
-  color: #000000;
-  font-weight: 700;
   margin: 0;
   padding: 0;
 }
 
-.contacts-info .address {
-  margin-bottom: 30px;
+.address-container .address {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.address-container .tel {
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 700;
+  margin-top: 10px;
 }
 
 .show-feedback {
   margin-left: 10px;
+  margin-top: 20px;
 }
+
 
 
 .feedback-wrapper:hover a {

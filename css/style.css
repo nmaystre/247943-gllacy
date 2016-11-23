@@ -36,14 +36,13 @@ a {
   font-size: 16px;
   line-height: 18px;
   color: #ffffff;
-  font-weight: 500;
   text-decoration: none;
 }
 
 .button {
   display: inline-block;
   padding: 10px 25px;
-  font-weight: 400;
+  font-weight: 700;
   font-size: 18px;
   line-height: 24px;
   vertical-align: top;
@@ -101,7 +100,7 @@ a {
   padding: 0;
   background-color: #f8f7f4;
   border-radius: 5px;
-  box-shadow: 0 20px 20px #56645c;
+  box-shadow: 0 20px 20px rgba(0,0,0,0.1);
   z-index: 2;
 }
 
@@ -175,12 +174,12 @@ a {
   display: block;
   padding: 6px 12px 7px 12px;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 700;
   line-height: 18px;
   border-radius: 30px;
 }
 
-.main-navigation>ul>li>a::after {
+.main-navigation>a::after {
   content: "";
   position: absolute;
   bottom: 5px;
@@ -263,7 +262,7 @@ a {
   border-radius: inherit;
 }
 
-.main-navigation-sub a:hover .main-navigation a {
+.main-navigation-sub:hover .main-navigation {
   color: #000000;
   text-decoration: none;
   background-color: #ffffff;
@@ -289,7 +288,6 @@ a {
 .user-block a {
   font-size: 14px;
   line-height: 16px;
-  font-weight: 300;
   vertical-align: middle;
 }
 
@@ -353,10 +351,6 @@ textarea:focus, input:focus {
   color: #999999;
 }
 
-
-/* вот тут и дальше я не уверена (совсем) что верно...
-даже скорее я уверена что и до этого не было верно */
-
 .dropdown-block input+label>span, .subscription-form input+label>span {
   position: absolute;
   bottom: 10px;
@@ -389,22 +383,6 @@ textarea:focus, input:focus {
   line-height: 13px;
   color: #999999;
 }
-
-
-/*
-.dropdown-block input:invalid + label > span,
-.subscription-form input:invalid +label > span {
-  display: block;
-  position: absolute;
-  bottom: 50px;
-  left: 25px;
-  margin: 0;
-  padding: 0;
-  font-size: 11px;
-  line-height: 13px;
-  color: #e95139;
-}
-*/
 
 .user-block .search-line {
   width: 300px;
@@ -671,7 +649,7 @@ body>input[type="radio"] {
 
 .filter-block, .filter-container .form-btn {
   display: inline-block;
-  margin-right: 19px;
+  margin-right: 15px;
   margin-bottom: 16px;
   vertical-align: bottom;
 }
@@ -741,14 +719,20 @@ h1 {
 }
 
 .filter-choose label {
-  font-size: 14px;
-  line-height: 16px;
-  font-weight: 500;
+  display: inline-block;
+  vertical-align: baseline;
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: 400;
+  padding-right: 22px;
+}
+
+.filter-choose label:last-child {
+  padding-right: 0px;
 }
 
 .filter-choose, .form-btn {
   padding: 8px 15px;
-  vertical-align: middle;
   background-color: #abbcb2;
   border-radius: 30px;
 }
@@ -761,7 +745,7 @@ h1 {
   color: #ffffff;
   font-size: 14px;
   line-height: 16px;
-  font-weight: 500px;
+  font-weight: 500;
   padding: 8px 25px;
   margin: 0;
 }
@@ -770,9 +754,6 @@ h1 {
   background-color: #ffffff;
   color: #323232;
 }
-
-
-/* откуда берется эта серая рамка при/после нажатия?*/
 
 .form-btn:active {
   background-color: #eaeaea;
@@ -813,8 +794,6 @@ select {
   border-right-color: transparent;
   border-left-color: transparent;
 }
-/* или лучше было сделать превдоэлемент для label? */
-
 
 /* range-filter */
 
@@ -887,93 +866,119 @@ select {
 
 /* checkboxes and radio */
 
-.fat-content span,
-.topping-name {
-   position: relative;
-   padding-left: 27px;
-   padding-right: 20px;
-   cursor: pointer;
-   vertical-align: top;
-   font-size: 16px;
-   line-height: 18px;
-   font-weight: 400;
- }
+.filter-radio,
+.filter-checkbox {
+  display: inline-block;
+  vertical-align: middle;;
+  font-size: 14px;
+  position: relative;
+}
 
- .fat-content:last-child span, .topping-name:last-child {
-   padding-right: 0px;
- }
-
-.filter-choose input[type="checkbox"],
-.filter-choose input[type="radio"] {
+.filter-radio input,
+.filter-checkbox input{
   display: none;
 }
 
-.fat-content span::before, .checkbox-indicator {
-  content: "";
-  position: absolute;
-  left:  0px;
-  width: 12px;
-  height: 12px;
-  background-color: #aabcb2;
-  border: 3px solid #aabcb2;
-  border-radius: 5px;
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 1);
+.filter-radio input + span,
+.filter-checkbox input + span{
+  padding-left: 28px;
+  cursor: pointer;
 }
 
-.fat-content span::before {
+.filter-radio input + span {
+  padding-left: 25px;
+}
+
+.filter-radio input:disabled + span,
+.filter-checkbox input:disabled + span,
+.filter-radio input:checked:disabled + span,
+.filter-checkbox input:checked:disabled + span {
+  cursor: not-allowed;
+}
+
+.filter-radio::before,
+.filter-checkbox::before {
+  display: block;
+  content: "";
+  width: 20px;
+  height: 20px;
+  box-sizing: border-box;
+  border: 1px solid #fff;
+  position: absolute;
+  left: 0;
+  top: -3px;
+}
+
+.filter-radio::before{
   border-radius: 50%;
 }
-
-.fat-content input[type="radio"]:checked+span::before {
-  background-color: #ffffff;
+.filter-checkbox::before{
+  border-radius: 4px;
 }
 
-.topping-name input[type="checkbox"]+.checkbox-indicator::before,
-.topping-name input[type="checkbox"]+.checkbox-indicator::after {
+.filter-radio input + span::before,
+.filter-checkbox input + span::before,
+.filter-checkbox input + span::after {
   content: "";
   position: absolute;
-  display:none;
-  top: 5px;
-  left: 3px;
-  height: 6px;
-  width: 2px;
-  background-color: white;
-  transform: rotate(-45deg);
+  background: #fff;
+  display: none;
 }
 
-.topping-name input[type="checkbox"]+.checkbox-indicator::after {
-  top: 2px;
-  left: 7px;
-  height: 9px;
-  transform: rotate(45deg);
-}
-
-.topping-name input[type="checkbox"]:checked+.checkbox-indicator::before,
-.topping-name input[type="checkbox"]:checked+.checkbox-indicator::after {
+.filter-radio input:checked + span::before{
   display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  left: 4px;
+  top: 1px;
 }
 
-.topping-name {
-  font-size: 16px;
-  line-height: 18px;
-  font-weight: 500;
-  padding-right: 30px;
-  padding-left: 33px;
-  /* тут какая-то несуразица с шрифтами: значения совпадают с макетом но выглядит все иначе, поэтому я изменила отступы */
+.filter-checkbox input:checked + span::before,
+.filter-checkbox input:checked:disabled + span::before {
+  display: block;
+  width: 11px;
+  height: 2px;
+  left: 7px;
+  top: 8px;
+  -webkit-transform: rotate(-45deg) translateY(-50%);
+  transform: rotate(-45deg) translateY(-50%);
 }
 
-.fat-content span:hover::before, .checkbox-indicator:hover {
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 1);
+.filter-checkbox input:checked + span::after,
+.filter-checkbox input:checked:disabled + span::after {
+  display: block;
+  width: 6px;
+  height: 2px;
+  left: 3px;
+  top: 9px;
+  -webkit-transform: rotate(45deg) translateY(-50%);
+  transform: rotate(45deg) translateY(-50%);
 }
 
-.fat-content span:disabled::before, .checkbox-indicator:disabled,
-.checkbox-indicator:disabled::before, .checkbox-indicator:disabled::after {
-  border-color: #b2c1b7;
+.filter-checkbox input:checked:disabled + span::before,
+.filter-checkbox input:checked:disabled + span::after {
+  background-color: rgba(255,255,255,0.3);
 }
 
-.fat-content span:disabled::before, .checkbox-indicator:disabled::before, .checkbox-indicator:disabled::after {
-  background-color: #b2c1b7;
+.filter-radio:hover::before,
+.filter-checkbox:hover::before {
+  border: 2px solid #ffffff;
 }
+
+input:checked:disabled + span:before,
+input:disabled + span::before,
+input:checked:disabled:hover + span::before,
+input:disabled:hover + span::before {
+   background-color: rgba(255,255,255,0.3);
+}
+
+.disabled::before,
+.disabled:hover::before {
+  border: 1px solid rgba(255,255,255,0.3);
+  cursor: not-allowed;
+}
+
 
 .specials {
   position: relative;
@@ -1015,7 +1020,6 @@ select {
 
 .special-item--chocolate {
   background: #371d0e url("../img/backgrounds/chocolate-background.png") no-repeat center center;
-  ;
 }
 
 .goods {
@@ -1059,15 +1063,24 @@ select {
 }
 
 .goods-price .price-sum {
-  padding-right: 35px;
   font-size: 45px;
   line-height: 45px;
   font-weight: 700;
-  background: transparent url(../img/sprite.png) no-repeat 75px -540px;
 }
 
+.goods-price .price-sum::after {
+  display: inline-block;
+  vertical-align: inherit;
+  content: "";
+  width: 35px;
+  height: 40px;
+  background: url(../img/sprite.png) no-repeat 0px -547px;
+
+}
+
+
 .goods-price .price-measure {
-  font-size: 35px;
+  font-size: 30px;
   line-height: 45px;
   font-weight: 700;
 }
@@ -1260,16 +1273,19 @@ select {
 .contacts {
   position: relative;
   display: block;
-  height: auto;
+  width: 100%;
+  height: 430px;
   margin-top: 30px;
-  background: transparent url("../img/backgrounds/map.jpg") no-repeat right top;
+  background: transparent url("../img/backgrounds/map.jpg") no-repeat center top;
 }
 
 .map {
+  position: absolute;
   width: 100%;
-  height: 100%;
+  height: 430px;
   margin: 0;
   padding: 0;
+  z-index: 1;
 }
 
 .pin {
@@ -1279,13 +1295,15 @@ select {
 }
 
 .address-container {
-  float: right;
-  margin: 70px 10px 30px 10px;
+  position: absolute;
+  right: 5%;
+  margin-top: 60px;
   padding: 30px 20px;
   width: 305px;
   box-sizing: border-box;
   background-color: #ffffff;
   border-radius: 10px;
+  z-index: 2;
 }
 
 .address-container .contacts-info {
@@ -1311,6 +1329,7 @@ select {
 .show-feedback {
   margin-left: 10px;
 }
+
 
 .feedback-wrapper:hover a {
   color: #ffffff;
@@ -1445,7 +1464,6 @@ select {
   position: relative;
   font-size: 13px;
   line-height: 18px;
-  font-weight: 300;
 }
 
 .footer-info-left a:first-child::before {
@@ -1549,4 +1567,8 @@ select {
   width: 2px;
   top: 0;
   left: 10px;
+}
+
+.modal-content-show {
+  display: block;
 }

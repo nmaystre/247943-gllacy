@@ -6,6 +6,7 @@ body {
   font-weight: 400;
   font-family: 'Roboto', sans-serif;
   background: #849d8f;
+  min-width: 1200px;
 }
 
 h2 {
@@ -973,8 +974,8 @@ input:disabled:hover + span::before {
    background-color: rgba(255,255,255,0.3);
 }
 
-.disabled::before,
-.disabled:hover::before {
+.filter-block .disabled::before,
+.filter-block .disabled:hover::before {
   border: 1px solid rgba(255,255,255,0.3);
   cursor: not-allowed;
 }
@@ -1363,6 +1364,16 @@ input:disabled:hover + span::before {
   background-color: rgba(255, 255, 255, 1);
 }
 
+.paginator .prev::before, .paginator .prev::after {
+  top: 0px;
+  left: 0px;
+}
+
+.paginator .next::before, .paginator .next::after {
+  top: 0px;
+  right: 0px;
+}
+
 .paginator .prev::before {
   transform: rotate(45deg);
   top: -5px;
@@ -1396,13 +1407,10 @@ input:disabled:hover + span::before {
   color: #000000;
 }
 
-.prev .disabled::before, .prev .disabled::after,
-.next .disabled::before, .next .disabled::after {
-  background-color: rgba(255, 255, 255, 0.3);
+.paginator .disabled::before, .paginator .disabled::after {
+  background-color: #9db1a5;
+  cursor: not-allowed;
 }
-
-/* нужно прописывать состояния для .prev:disabled::before и тд? */
-
 
 .footer-social {
   float: left;

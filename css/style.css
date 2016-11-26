@@ -118,6 +118,7 @@ a {
 .header-gradient {
   position: absolute;
   height: 1000px;
+  min-width: 1200px;
   width: 100%;
   background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 10%, rgba(255, 255, 255, 0.01) 50%, transparent 100%);
   z-index: -1;
@@ -269,6 +270,10 @@ a {
   background-color: #ffffff;
 }
 
+.main-navigation-sub .active,
+.main-navigation-sub .active:hover {
+  background-color: #d07058;
+}
 
 /* поиск и тд */
 
@@ -341,7 +346,8 @@ textarea:focus, input:focus {
   font-weight: 400;
 }
 
-.dropdown-block input+label, .subscription-form input+label {
+.dropdown-block input+label, .subscription-form input+label,
+.dropdown-block textarea+label {
   display: block;
   position: relative;
   white-space: nowrap;
@@ -352,7 +358,8 @@ textarea:focus, input:focus {
   color: #999999;
 }
 
-.dropdown-block input+label>span, .subscription-form input+label>span {
+.dropdown-block input+label>span, .subscription-form input+label>span,
+.dropdown-block textarea+label>span {
   position: absolute;
   bottom: 10px;
   left: 30px;
@@ -361,7 +368,12 @@ textarea:focus, input:focus {
   line-height: 24px;
 }
 
-.dropdown-block input:focus+label>span, .subscription-form input:focus+label>span {
+.dropdown-block textarea+label>span {
+  bottom: 120px;
+}
+
+.dropdown-block input:focus+label>span, .subscription-form input:focus+label>span,
+.dropdown-block textarea:focus+label>span {
   display: block;
   position: absolute;
   bottom: 50px;
@@ -373,7 +385,8 @@ textarea:focus, input:focus {
   color: #5b9ddf;
 }
 
-.dropdown-block input:valid+label>span, .subscription-form input:valid+label>span {
+.dropdown-block input:valid+label>span, .subscription-form input:valid+label>span,
+ {
   display: block;
   position: absolute;
   bottom: 50px;
@@ -383,6 +396,10 @@ textarea:focus, input:focus {
   font-size: 11px;
   line-height: 13px;
   color: #999999;
+}
+
+.dropdown-block textarea:focus+label>span {
+  bottom: 160px;
 }
 
 .user-block .search-line {
@@ -780,9 +797,14 @@ select {
   border: none;
   font-size: 16px;
   line-height: 18px;
-  font-weight: 500px;
+  font-weight: 500;
   color: #ffffff;
   cursor: pointer;
+}
+
+.filter-select:hover, .filter-select:hover select {
+  background-color: #ffffff;
+  color: #333333;
 }
 
 .filter-select::after {
@@ -792,6 +814,12 @@ select {
   right: 13px;
   border: 5px solid #ffffff;
   border-bottom-width: 0;
+  border-right-color: transparent;
+  border-left-color: transparent;
+}
+
+.filter-select:hover::after {
+  border-color: #333333;
   border-right-color: transparent;
   border-left-color: transparent;
 }
@@ -1076,9 +1104,7 @@ input:disabled:hover + span::before {
   width: 35px;
   height: 40px;
   background: url(../img/sprite.png) no-repeat 0px -547px;
-
 }
-
 
 .goods-price .price-measure {
   font-size: 30px;
@@ -1094,6 +1120,7 @@ input:disabled:hover + span::before {
   font-weight: 400;
   border-bottom: 1px solid #a7b8ad;
 }
+
 .goods-item--btn {
   display: none;
   position: absolute;
@@ -1110,7 +1137,7 @@ input:disabled:hover + span::before {
   left: -10px;
   right: -10px;
   background-color: rgba(174, 190, 180, 0.3);
-  box-shadow: 0 5px 5px 10px rgba(116, 138, 126, 0.4);
+  box-shadow: 0 20px 20px rgba(116, 138, 126, 0.5);
   border-radius: 5px;
 }
 .goods-item:hover{
@@ -1121,6 +1148,15 @@ input:disabled:hover + span::before {
 }
 .goods-item:hover .goods-item--btn {
   display: block;
+}
+
+.goods-item:hover .goods-name {
+  border-bottom: none;
+}
+
+.goods-item .goods-name:hover, .goods-item .goods-name:active {
+  color: #e84d37;
+  border-bottom: 1px solid #e84d37;
 }
 
 .about {
@@ -1218,6 +1254,10 @@ input:disabled:hover + span::before {
   color: #323232;
   text-decoration: underline;
   margin: 10px 0px 59px 0px;
+}
+
+.special-item--blog .post:hover, .special-item--blog .post:active {
+  color: #e84d37;
 }
 
 .special-item--subscription {
@@ -1469,6 +1509,10 @@ input:disabled:hover + span::before {
   line-height: 18px;
 }
 
+.footer-info a:hover, .footer-info a:active {
+  color: #ffbc9e;
+}
+
 .footer-info-left a:first-child::before {
   content: "";
   position: absolute;
@@ -1486,6 +1530,9 @@ input:disabled:hover + span::before {
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+.footer-info a:hover::after, .footer-info a:active::after {
+  border-color: #ffbc9e;
+}
 .footer-copyright {
   float: right;
   text-align: right;
@@ -1513,6 +1560,10 @@ input:disabled:hover + span::before {
   font-weight: 300;
 }
 
+.footer-copyright .academy:hover, .footer-copyright .academy:active {
+  color: #ffbc9e;
+}
+
 .footer-copyright .academy::after {
   content: "";
   position: absolute;
@@ -1520,6 +1571,10 @@ input:disabled:hover + span::before {
   left: 0;
   right: 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.footer-copyright .academy:hover::after, .footer-copyright .academy:active::after {
+  border-color: #ffbc9e;
 }
 
 .feedback {
@@ -1553,6 +1608,7 @@ input:disabled:hover + span::before {
   width: 430px;
   height: 150px;
   box-sizing: border-box;
+  resize: none;
 }
 
 .feedback .delete-btn {

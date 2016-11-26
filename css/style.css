@@ -385,8 +385,7 @@ textarea:focus, input:focus {
   color: #5b9ddf;
 }
 
-.dropdown-block input:valid+label>span, .subscription-form input:valid+label>span,
- {
+.dropdown-block input:valid+label>span, .subscription-form input:valid+label>span {
   display: block;
   position: absolute;
   bottom: 50px;
